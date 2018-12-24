@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Build VOPS') {
+        stage('Build Vedeps') {
             steps {
                dockerBuild()
             }
@@ -20,12 +20,17 @@ pipeline {
        }
 
        stage('Build MongoDB') {
+         environment {
+           def REPORT_STAGE='itu'
+         }
          steps {
+           input id: 'ok-itu', message: 'Waiting for userinput'
            sh '''
              docker pull mongo
              docker tag mongo dockermgeo/mongo:latest
              docker push dockermgeo/mongo:latest
            '''
+           reportVersion()
          }
        }
 
@@ -34,6 +39,7 @@ pipeline {
            def REPORT_STAGE='satu'
          }
          steps {
+           input id: 'ok-satu', message: 'Waiting for userinput'
            sh '''
             wdir=/tmp/github-vops2/
             if [ -d ${wdir} ]; then
