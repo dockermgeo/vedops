@@ -1,0 +1,21 @@
+{
+  "name": "app4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "^1.4.3",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.3",
+    "log4js": "^0.6.35",
+    "mongodb": "^3.1.10",
+    "pug": "^2.0.3"
+  }
+}

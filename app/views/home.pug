@@ -1,0 +1,29 @@
+doctype html
+html
+    include inc_meta.pug
+    body()
+        table(class="table" width="100%")
+          tr
+            td(class='tab_menue')
+            td(colspan=HTML_TABLE_COLSPAN)
+              ul(class="breadcrumb")
+                - var counter=0;
+                each STAGE in HTML_STAGES
+                  - counter++
+                  li(class="stage"+counter)
+                    a(href="#" title="")
+                      em= STAGE
+                li(class="")
+          each ENTRY in HTML_TABLE_CONTENT
+            tr
+              td()= ENTRY.name
+                p(style="font-size:0.8em;margin:0;padding:0;")= ENTRY.mdate
+              each vobj in ENTRY.versions
+                td(class="td_3")
+                  if (vobj.version != undefined)
+                    div(class="td_div_left")= vobj.version
+                    div(class="td_div_right")= vobj.mdate
+              td= ' '
+
+
+        include inc_footer.pug

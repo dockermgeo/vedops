@@ -1,0 +1,8 @@
+{
+  "appname":"VOPS",
+  "loglevel":"trace",
+  "port":3200,
+  "mongodb_host": "localhost",
+  "mongodb_port": 27017,
+  "stages": [ "ETU", "ITU", "SATU"]
+}
