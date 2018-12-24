@@ -6,14 +6,14 @@ Gives a REST-API for posting data.
 
 ### Docker-Environment
 - LOG_LEVEL=debug
-- MONGODB_HOST=<mongodb_host>
+- MONGODB_HOST=**{MONGODB_HOST}**
 
 ### API
 #### Get a list of versions
-- http://<your_host>:<27080>/api
+- http://**{HOST}**:<27080>/api
 
 #### Store a version
-- http://<your_host>:<27080>/api/add/namespace/appname/stage/version
+- http://**{HOST}**:<27080>/api/add/**{NAMESPACE}**/**{APPNAME}**/**{STAGE}**/**{VERSION}**
 
 ### Jenkins-LIB
 
