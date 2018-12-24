@@ -7,31 +7,19 @@ pipeline {
     }
 
     stages {
-        stage('GIThub') {
-          steps {
-            sh '''
-             wdir=/tmp/github-vops2/
-             if [ -d ${wdir} ]; then
-               rm -Rf ${wdir}
-             fi
-             make -f Makefile.github
-             '''
-          }
-        }
-
-        stage('Build') {
+        stage('Build VOPS') {
             steps {
                dockerBuild()
             }
        }
 
-        stage('Report') {
+        stage('Report Vops') {
             steps {
                reportVersion()
             }
        }
 
-       stage('Get Mongo') {
+       stage('Build MongoDB') {
          steps {
            sh '''
              docker pull mongo
@@ -41,6 +29,16 @@ pipeline {
          }
        }
 
-
+       stage('Promote GIThub') {
+         steps {
+           sh '''
+            wdir=/tmp/github-vops2/
+            if [ -d ${wdir} ]; then
+              rm -Rf ${wdir}
+            fi
+            make -f Makefile.github
+            '''
+         }
+       }
     }
 }
