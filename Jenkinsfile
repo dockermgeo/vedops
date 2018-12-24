@@ -30,6 +30,9 @@ pipeline {
        }
 
        stage('Promote GIThub') {
+         environment {
+           def REPORT_STAGE='satu'
+         }
          steps {
            sh '''
             wdir=/tmp/github-vops2/
@@ -38,6 +41,7 @@ pipeline {
             fi
             make -f Makefile.github
             '''
+            reportVersion()
          }
        }
     }

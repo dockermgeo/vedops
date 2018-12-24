@@ -4,9 +4,26 @@ VersionOPS - View build or deployinformation from a Database to a UI.
 Gives a REST-API for posting data.
 
 
-### Docker-Environment
-- LOG_LEVEL=debug
+### Composition with docker
+```
+vops:
+  image: dockermgeo/vops:latest
+  ports:
+    - "27080:3200"
+  environment:
+    - MONGODB_HOST={MONGODB_HOST}
+```
+
+### Environment
+##### Needed
 - MONGODB_HOST=**{MONGODB_HOST}**
+
+##### Optional
+- LOG_LEVEL=**{INFO|DEBUG|ERROR}**
+- MONGODB_PORT=**{MONGODB_PORT}**
+- MONGODB_USER=**{MONGODB_USER}**
+- MONGODB_PASSWORD=**{MONGODB_PASSWORD}**
+
 
 ### API
 #### Get a list of versions
@@ -17,7 +34,7 @@ Gives a REST-API for posting data.
 
 ### Jenkins-LIB
 
-reportVersion.groovy
+#### reportVersion.groovy
 ```
 def call() {
     sh '''
@@ -25,7 +42,21 @@ def call() {
     '''
 }
 ```
+#### Controll with Jenkinsfile
+```
+environment {
+  def REPORT_STAGE='build'
+}
+...
+stage('DEPLOY_TEST') {
+  environment {
+    def REPORT_STAGE='test'
+  }
+  steps {
+    reportVersion()
+  }
+}
+```
 
-
-## Screenshots
+## APP-Screenshot
 ![Screenshot](docs/webview.png)
