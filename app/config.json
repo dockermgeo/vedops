@@ -4,5 +4,5 @@
   "port":3200,
   "mongodb_host": "localhost",
   "mongodb_port": 27017,
-  "stages": [ "ETU", "ITU", "SATU"]
+  "stages": [ "BUILD", "TEST", "PROD"]
 }
