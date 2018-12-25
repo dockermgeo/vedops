@@ -1,7 +1,7 @@
 # ![LOGO](docs/logo32.png) Vedops
 
 
-- build: v1.48 - updated: 2018-12-25T17:35:02+0000
+- build: v1.50 - updated: 2018-12-25T17:59:51+0000
 ---
 
 
@@ -13,7 +13,7 @@ The Frontend gives you a overview about your build/deployments etc. The UI suppo
 
 A Screenshot of the Frontend will printed at the bottom of this document.
 
-### Composition with docker
+## Composition with docker
 ```
 vedops:
   image: dockermgeo/vedops:latest
@@ -29,23 +29,35 @@ mongo:
     - MONGODB_ROOT_PASSWORD=password123
 ```
 
-### Environment
+## Environment
+
 ##### Needed
 - MONGODB_HOST=**{MONGODB_HOST}**
 
 ##### Optional
 - LOG_LEVEL=**{INFO|DEBUG|ERROR}**
+- LIST_STAGES=**{'ST1 ST2 ST3 ST4 ST5'}**
 - MONGODB_PORT=**{MONGODB_PORT}**
 - MONGODB_USER=**{MONGODB_USER}**
 - MONGODB_PASSWORD=**{MONGODB_PASSWORD}**
 
 
-### API
-#### Get a list of versions
-- http://**{HOST}**:<27080>/api
+## API
+#### Get All from Store
+- *GET* http://**{HOST}**:<27080>/api
 
-#### Store a version
-- http://**{HOST}**:<27080>/api/add/**{NAMESPACE}**/**{APPNAME}**/**{STAGE}**/**{VERSION}**
+#### Add to Store
+##### PUT or UPDATE
+- *POST* http://**{HOST}**:<27080>/api/add/**{NAMESPACE}**/**{APPNAME}**/**{STAGE}**/**{VERSION}**
+
+#### Delete from Store
+
+##### Delete a Application over all stages
+- *POST* http://**{HOST}**:<27080>/api/delete/app/**{APPNAME}**
+
+#### Delete a Version
+- *POST* http://**{HOST}**:<27080>/api/delete/version/**{APPNAME}**/**{STAGE}**
+
 
 ### Jenkins-LIB
 

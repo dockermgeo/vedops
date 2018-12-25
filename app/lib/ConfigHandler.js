@@ -27,6 +27,15 @@ class ConfigHandler {
 		return logger;
 	}
 	getStageNames() {
+		if (process.env.LIST_STAGES != null) {
+			const LIST_STAGES=process.env.LIST_STAGES.split(" ");
+			var RC_STAGES=[];
+			for (var si in LIST_STAGES) {
+				RC_STAGES.push(LIST_STAGES[si]);
+			}
+			return RC_STAGES;
+		}
+		
 		return CFG.stages;
 	}
 
