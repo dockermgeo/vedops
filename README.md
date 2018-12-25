@@ -1,9 +1,10 @@
 # ![LOGO](docs/logo32.png) Vedops
-
-build: V1.40
+---
+build: v1.44
 
 Vedops, or with other words: **Versioning DevOps**. This app serve a API to commit version of build- or deployinformation to a mongodb-Databasesystem in the backend.
-The Frontend gives you a overview about your build/deployments etc.
+
+The Frontend gives you a overview about your build/deployments etc. The UI support untils to 5 stages.
 
 ![Pipeline reporting](docs/pipeline-reporting.png)
 
@@ -11,12 +12,18 @@ A Screenshot of the Frontend will printed at the bottom of this document.
 
 ### Composition with docker
 ```
-vops:
+vedops:
   image: dockermgeo/vedops:latest
   ports:
     - "27080:3200"
   environment:
     - MONGODB_HOST={MONGODB_HOST}
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+  environment:
+    - MONGODB_ROOT_PASSWORD=password123
 ```
 
 ### Environment
@@ -64,4 +71,11 @@ stage('DEPLOY_TEST') {
 ```
 
 ## APP-Screenshot
+
+---
+build: v1.44
+
 ![Screenshot](docs/webview.png)
+
+---
+build: v1.44

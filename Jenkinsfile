@@ -4,6 +4,7 @@ pipeline {
     environment {
       DOCKER_IMAGE = 'vedops'
       REPORT_STAGE = 'build'
+      BUILD_RELEASE_NUMBER = 1
     }
 
     stages {
