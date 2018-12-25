@@ -1,14 +1,18 @@
-# Vedops
+# ![LOGO](docs/logo32.png) Vedops
 
-build: V1.37
+build: V1.38
 
-Version Dev Ops - View build or deployinformation from a Database to a UI.
-Gives a REST-API for posting data. ![LOGO](docs/logo32.png)
+Vedops, or with other words: **Versioning DevOps**. This app serve a API to commit version of build- or deployinformation to a mongodb-Databasesystem in the backend.
+The Frontend gives you a overview about your build/deployments etc.
+
+![Pipeline reporting](docs/pipeline-reporting.png)
+
+A Screenshot of the Frontend will printed at the bottom of this document.
 
 ### Composition with docker
 ```
 vops:
-  image: dockermgeo/vops:latest
+  image: dockermgeo/vedops:latest
   ports:
     - "27080:3200"
   environment:
