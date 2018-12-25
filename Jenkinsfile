@@ -13,24 +13,25 @@ pipeline {
             }
        }
 
-        stage('Report Vops') {
+        stage('Report Build & Wait') {
             steps {
                reportVersion()
+               input id: 'ok-test', message: 'Waiting for userinput'
             }
        }
 
-       stage('Build MongoDB') {
+       stage('Build MongoDB & Wati') {
          environment {
            def REPORT_STAGE='test'
          }
          steps {
-           input id: 'ok-itu', message: 'Waiting for userinput'
            sh '''
              docker pull mongo
              docker tag mongo dockermgeo/mongo:latest
              docker push dockermgeo/mongo:latest
            '''
            reportVersion()
+           input id: 'ok-prod', message: 'Waiting for userinput'
          }
        }
 
@@ -39,7 +40,6 @@ pipeline {
            def REPORT_STAGE='prod'
          }
          steps {
-           input id: 'ok-satu', message: 'Waiting for userinput'
            sh '''
             wdir=/tmp/github-vops2/
             if [ -d ${wdir} ]; then
