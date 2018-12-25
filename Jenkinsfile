@@ -8,20 +8,20 @@ pipeline {
     }
 
     stages {
-        stage('Build Vedeps') {
+        stage('Build Dockerimage') {
             steps {
                dockerBuild()
             }
        }
 
-        stage('Report Build & Wait') {
+        stage('Buildreporter & Nextwait') {
             steps {
                reportVersion()
                input id: 'ok-test', message: 'Waiting for userinput'
             }
        }
 
-       stage('Publish DockerHub & Wati') {
+       stage('DockerHubpublishing & Nextwait') {
          environment {
            def REPORT_STAGE='test'
          }
@@ -32,16 +32,12 @@ pipeline {
          }
        }
 
-       stage('Promote GIThub') {
+       stage('Promote GitHub') {
          environment {
            def REPORT_STAGE='prod'
          }
          steps {
            sh '''
-            wdir=/tmp/github-vops2/
-            if [ -d ${wdir} ]; then
-              rm -Rf ${wdir}
-            fi
             make -f Makefile.github
             '''
             reportVersion()
