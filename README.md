@@ -1,6 +1,8 @@
 # ![LOGO](docs/logo32.png) Vedops
 ---
-build: v1.44
+build: v1.46 - updated: 2018-12-25T17:28:30+0000
+---
+
 
 Vedops, or with other words: **Versioning DevOps**. This app serve a API to commit version of build- or deployinformation to a mongodb-Databasesystem in the backend.
 
@@ -73,9 +75,7 @@ stage('DEPLOY_TEST') {
 ## APP-Screenshot
 
 ---
-build: v1.44
 
 ![Screenshot](docs/webview.png)
 
 ---
-build: v1.44
