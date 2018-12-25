@@ -34,7 +34,8 @@ class ConfigHandler {
 			const LIST_STAGES=process.env.LIST_STAGES.split(" ");
 			var RC_STAGES=[];
 			for (var si in LIST_STAGES) {
-				RC_STAGES.push(LIST_STAGES[si]);
+				var stage=LIST_STAGES[si].replace("\"","");
+				RC_STAGES.push(stage);
 			}
 			return RC_STAGES;
 		}
