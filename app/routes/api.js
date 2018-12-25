@@ -36,6 +36,7 @@ router.get('/add/:namespace/:appname/:stage/:version', function(req, res, next) 
 });
 // --> REAL INSERT
 router.post('/add/:namespace/:appname/:stage/:version', function(req, res, next) {
+  logger.debug("ADDING --> ",req.params.namespace, req.params.stage, req.params.appname, req.params.version);
   const newobj = { namespace:req.params.namespace, stage:req.params.stage, name:req.params.appname, version:req.params.version};
   mongo.upsert(newobj,res);
 });

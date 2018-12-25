@@ -1,6 +1,6 @@
 # Vedops
----
-build: 36
+
+build: V1.37
 
 Version Dev Ops - View build or deployinformation from a Database to a UI.
 Gives a REST-API for posting data. ![LOGO](docs/logo32.png)

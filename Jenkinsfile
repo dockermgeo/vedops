@@ -3,7 +3,7 @@ pipeline {
 
     environment {
       DOCKER_IMAGE = 'vedops'
-      REPORT_STAGE = 'etu'
+      REPORT_STAGE = 'build'
     }
 
     stages {
@@ -21,7 +21,7 @@ pipeline {
 
        stage('Build MongoDB') {
          environment {
-           def REPORT_STAGE='itu'
+           def REPORT_STAGE='test'
          }
          steps {
            input id: 'ok-itu', message: 'Waiting for userinput'
@@ -36,7 +36,7 @@ pipeline {
 
        stage('Promote GIThub') {
          environment {
-           def REPORT_STAGE='satu'
+           def REPORT_STAGE='prod'
          }
          steps {
            input id: 'ok-satu', message: 'Waiting for userinput'
