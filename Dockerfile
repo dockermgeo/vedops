@@ -1,6 +1,8 @@
 FROM node
 
 ENV MONGODB_HOST localhost
+ENV DISABLE_API false
+
 
 ADD app /app
 

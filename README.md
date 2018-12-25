@@ -1,7 +1,7 @@
 # ![LOGO](docs/logo32.png) Vedops
 
 
-- build: v1.62 - updated: 2018-12-25T19:16:28+0000
+- build: v1.64 - updated: 2018-12-25T20:19:14+0000
 ---
 
 
@@ -41,6 +41,8 @@ mongo:
 ##### Optional
   - LOG_LEVEL=**{INFO|DEBUG|ERROR}**
   - LIST_STAGES=**{'ST1 ST2 ST3 ST4 ST5'}**
+  - DISABLE_API=**{false|true}**
+  - CSS_THEME=**{black,white}**
   - MONGODB_PORT=**{MONGODB_PORT}**
   - MONGODB_USER=**{MONGODB_USER}**
   - MONGODB_PASSWORD=**{MONGODB_PASSWORD}**

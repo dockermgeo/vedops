@@ -26,6 +26,9 @@ class ConfigHandler {
 		logger.setLevel(process.env.LOGLEVEL || CFG.loglevel);
 		return logger;
 	}
+	getStyleName() {
+		return process.env.CSS_THEME || 'black';
+	}
 	getStageNames() {
 		if (process.env.LIST_STAGES != null) {
 			const LIST_STAGES=process.env.LIST_STAGES.split(" ");
@@ -35,7 +38,7 @@ class ConfigHandler {
 			}
 			return RC_STAGES;
 		}
-		
+
 		return CFG.stages;
 	}
 

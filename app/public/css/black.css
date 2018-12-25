@@ -1,0 +1,11 @@
+@import 'breadcrumb.css';
+@import 'global.css';
+body {background-color: black; color:white;}
+tr:nth-child(even) {background: #242222;}
+tr:nth-child(odd) {background: #000000;}
+
+.copyright {font-size: 10px; color: #ccc; }
+.copyright a {color:rgb(75, 77, 75);}
+
+.breadcrumb {background-color: black;}
+.breadcrumb li a:before { border-left: 30px solid black; }

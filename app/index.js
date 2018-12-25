@@ -15,9 +15,18 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use([ '/', '/home'], require(__dirname+'/routes/home.js'));
-app.use([ '/api', '/rest'], require(__dirname+'/routes/api'));
-
+app.use([ '/', '/home'], require(__dirname+'/routes/home'));
+if (process.env.DISABLE_API) {
+  if (process.env.DISABLE_API.toLowerCase() === 'true') {
+    app.use([ '/api', '/rest'], require(__dirname+'/routes/api_off'));
+  }
+  else {
+    app.use([ '/api', '/rest'], require(__dirname+'/routes/api'));
+  }
+}
+else {
+  app.use([ '/api', '/rest'], require(__dirname+'/routes/api'));
+}
 app.listen(config.getPort())
 logger.info(config.getAppname() + ' started on port ' + config.getPort())
 
