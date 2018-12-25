@@ -42,15 +42,19 @@ router.post('/add/:namespace/:appname/:stage/:version', function(req, res, next)
 });
 /* DELETE */
 router.post('/delete/id/:id', function(req, res, next) {
-  var deleteObject = { '_id': req.params.id }
+  var deleteObject = { '_id': req.params.id };
+  logger.debug("TRY DELETE", deleteObject);
   mongo.deleteDocumentByObject(deleteObject, res);
 });
 router.post('/delete/app/:appname', function(req, res, next) {
-  mongo.deleteDocumentByObject({'name': req.params.appname}, res);
+  var deleteObject = {'name': req.params.appname};
+  logger.debug("TRY DELETE", deleteObject);
+  mongo.deleteDocumentByObject(deleteObject, res);
 });
 router.post('/delete/version/:appname/:stage', function(req, res, next) {
-  const newobj = { namespace:req.params.namespace, stage:req.params.stage, name:req.params.appname, version:null};
-  mongo.upsert(newobj,res);
+  const deleteObject = { namespace:req.params.namespace, stage:req.params.stage, name:req.params.appname, version:null};
+  logger.debug("TRY DELETE", deleteObject);
+  mongo.upsert(deleteObject,res);
 });
 
 //
