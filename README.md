@@ -1,13 +1,14 @@
 # ![LOGO](docs/logo32.png) Vedops
 
 
-- build: v1.61 - updated: 2018-12-25T19:02:31+0000
+- build: v1.62 - updated: 2018-12-25T19:16:28+0000
 ---
 
 
 Vedops, or with other words: **Versioning DevOps**. This app serve a API to commit version of build- or deployinformation to a mongodb-Databasesystem in the backend.
 
 The Frontend gives you a overview about your build/deployments etc. The UI support untils to 5 stages.
+This way of displaying versions is also included in other Devops frameworks (Hygieia). Veops is a lightweight instrument for this type of presentation.
 
 ![Pipeline reporting](docs/pipeline-reporting.png)
 
@@ -68,7 +69,7 @@ mongo:
 ```
 def call() {
     sh '''
-        curl -s -X POST http://mecy:27080/api/add/namespace/${DOCKER_IMAGE}/${REPORT_STAGE}/${BUILD_NUMBER}
+        curl -s -X POST http://${VEDOPS_HOST}:${VEDOPS_HOST:-27080}/api/add/${NAMESPACE}/${DOCKER_IMAGE}/${REPORT_STAGE}/${BUILD_NUMBER}
     '''
 }
 ```
