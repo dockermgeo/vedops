@@ -3,7 +3,8 @@ var MongoClient = require('mongodb').MongoClient;
 var utils = require(__dirname+'/Utils.js');
 var config = require(__dirname+'/ConfigHandler');
 const logger = config.getLogger('CONNECTOR');
-const dbcollection = "buildsystem";
+const dbname = "buildsystem";
+const collection = "builds";
 
 var url = "mongodb://"+config.getMongoDbHost()+":"+config.getMongoDbPort()+"/";
 if (process.env.MONGO_USER != undefined) {
@@ -17,8 +18,8 @@ class MongoConnector {
 		MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
 		  if (err) throw err;
 
-		  var dbo = db.db(dbcollection);
-		  dbo.collection("builds").find({}, { projection: { _id:1, name: 1, mdate: 1, versions: 1 } }).toArray(function(err, result) {
+		  var dbo = db.db(dbname);
+		  dbo.collection(collection).find({}, { projection: { _id:1, name: 1, mdate: 1, versions: 1 } }).toArray(function(err, result) {
 		    if (err) throw err;
 
 				res.json(result)
@@ -31,8 +32,8 @@ class MongoConnector {
 		MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
 		  if (err) throw err;
 
-		  var dbo = db.db(dbcollection);
-		  dbo.collection("builds").find({}, { projection: { _id:1, name: 1, mdate: 1, versions: 1 } }).toArray(function(err, result) {
+		  var dbo = db.db(dbname);
+		  dbo.collection(collection).find({}, { projection: { _id:1, name: 1, mdate: 1, versions: 1 } }).toArray(function(err, result) {
 		    if (err) throw err;
 				htmlobject.HTML_TABLE_CONTENT=result,
 				res.render("home.pug", htmlobject);
@@ -41,15 +42,18 @@ class MongoConnector {
 		});
 	}
 
-	upsert(newobj) {
+	upsert(newobj,res) {
 		MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
-		  if (err) throw err;
+		  if (err) {
+				logger.error(err);
+				res.sendStatus(400);
+			};
 
-		  var dbo = db.db(dbcollection);
-		  dbo.collection("builds").find({}, { projection: { _id:0, name: 1, mdate: 1, versions: 1 } }).toArray(function(err, result) {
+		  var dbo = db.db(dbname);
+		  dbo.collection(collection).find({}, { projection: { _id:0, name: 1, mdate: 1, versions: 1 } }).toArray(function(err, result) {
 		    if (err) {
 					logger.error(err)
-					return
+					res.sendStatus(400);
 				}
 
 				let is_new=true;
@@ -69,9 +73,11 @@ class MongoConnector {
 
 						var newdocument = {name: newobj.name, mdate:utils.getDateFormated(), versions:list_rc}
 						dbo.collection('builds').update({name:newobj.name},newdocument, {upsert:true}, function(err, result) {
-								if (err)
+								if (err) {
 									logger.error(err);
-
+									res.sendStatus(400);
+								}
+								res.sendStatus(200);
 								db.close();
 						});
 					}
@@ -96,9 +102,11 @@ class MongoConnector {
 						var newdocument = {name: newobj.name, mdate:utils.getDateFormated(), versions:list_rc}
 						logger.info("ADD NEW", newdocument)
 						dbo.collection('builds').update({name:newobj.name},newdocument, {upsert:true}, function(err, result) {
-								if (err)
+								if (err) {
 									logger.error(err)
-
+									res.sendStatus(400);
+								}
+								res.sendStatus(200);
 								db.close();
 						});
 				}
@@ -109,7 +117,26 @@ class MongoConnector {
 		});
 	}
 
+	deleteDocumentByObject(delObj,res) {
+		//db.users.deleteMany({ status : "A" })
+		logger.debug("Deleting Documents with this Delete-Object: "+delObj);
+		MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+			if (err) throw err;
 
+			var dbo = db.db(dbname);
+			dbo.collection(collection).deleteOne(delObj, function(err, obj) {
+				if (err) {
+					logger.error(err);
+						res.sendStatus(400);
+					}
+
+					logger.debug("Document deleted", delObj);
+					res.sendStatus(200);
+					db.close();
+			});
+		});
+
+	}
 
 
 }

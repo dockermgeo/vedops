@@ -2,7 +2,8 @@ doctype html
 html
     include inc_meta.pug
     body()
-        table(class="table" width="100%")
+      include inc_header.pug
+        table(class="table" width="100%" style="margin-top: -30px;")
           tr
             td(class='tab_menue')
             td(colspan=HTML_TABLE_COLSPAN)

@@ -18,7 +18,7 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: password123
   vops:
-    image: mecy:5000/dockermgeo/vops:latest
+    image: mecy:5000/dockermgeo/vedops:latest
     ports:
       - "27080:3200"
     environment:

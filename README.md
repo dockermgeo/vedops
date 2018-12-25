@@ -1,4 +1,5 @@
-# Vedeps (VOPS)
+# Vedops V35
+# ![LOGO](docs/logo32.png)
 
 Version Dev Ops - View build or deployinformation from a Database to a UI.
 Gives a REST-API for posting data.
@@ -38,7 +39,7 @@ vops:
 ```
 def call() {
     sh '''
-        curl -s http://${VOPS_HOST}:${VOPS_HOST:-27080}/api/add/${NAMESPACE}/${DOCKER_IMAGE}/${REPORT_STAGE}/${BUILD_NUMBER}
+        curl -s -X POST http://mecy:27080/api/add/namespace/${DOCKER_IMAGE}/${REPORT_STAGE}/${BUILD_NUMBER}
     '''
 }
 ```

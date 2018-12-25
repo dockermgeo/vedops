@@ -1,5 +1,5 @@
 {
-  "appname":"VOPS",
+  "appname":"Vedops",
   "loglevel":"trace",
   "port":3200,
   "mongodb_host": "localhost",

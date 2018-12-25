@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-      DOCKER_IMAGE = 'vops'
+      DOCKER_IMAGE = 'vedops'
       REPORT_STAGE = 'etu'
     }
 
