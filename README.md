@@ -1,9 +1,9 @@
-# Vedops V35
-# ![LOGO](docs/logo32.png)
+# Vedops
+---
+build: 36
 
 Version Dev Ops - View build or deployinformation from a Database to a UI.
-Gives a REST-API for posting data.
-
+Gives a REST-API for posting data. ![LOGO](docs/logo32.png)
 
 ### Composition with docker
 ```
