@@ -3,7 +3,7 @@
 
 
 WAIT_SECONDS="1"
-SERVER="http://mecy:27080"
+SERVER="http://${VEDOPS_HOST:-'localhost'}:${VEDOPS_PORT:-27080}"
 LIST_HWUI="HelloWorld-UI/build/9143 HelloWorld-UI/test/9043 HelloWorld-UI/prod/8748 HelloWorld-UI/build/9143"
 LIST_HWDB="HelloWorld-DB/build/847 HelloWorld-DB/test/847 HelloWorld-DB/prod/493 HelloWorld-DB/build/892"
 LIST_HWAPI="RootKit-R3/build/1 HelloWorld-API/build/6 HelloWorld-API/test/6 HelloWorld-API/prod/6 HelloWorld-API/build/34"
