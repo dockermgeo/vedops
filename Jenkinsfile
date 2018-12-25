@@ -23,7 +23,7 @@ pipeline {
             //cycling cant report after that
             dockerDeploy()
             inputProceed()
-            input id: 'DeployBuild', message: 'Waiting for userinput',ok: 'Publish'
+            input id: 'DeployBuild', message: 'waiting for callback'
             reportVersion()
          }
        }
@@ -36,7 +36,7 @@ pipeline {
          steps {
            dockerHubPush()
            inputProceed()
-           input id: 'PublishGit', message: 'Waiting for userinput'
+           input id: 'PublishGit', message: 'waiting for callback'
            reportVersion()
          }
        }
