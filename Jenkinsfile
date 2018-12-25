@@ -16,12 +16,14 @@ pipeline {
 
         stage('Deploy & Nextwait') {
          environment {
-           def DEPLOY_NAME='apps_vedops_1'
+           def DEPLOY_NAME='vedops'
+           def INPUT_ID='DeployBuild'
          }
          steps {
             //cycling cant report after that
-            //dockerDeploy()
-            input id: 'ok-test', message: 'Waiting for userinput'
+            dockerDeploy()
+            inputProceed()
+            input id: 'DeployBuild', message: 'Waiting for userinput',ok: 'Publish'
             reportVersion()
          }
        }
@@ -29,11 +31,13 @@ pipeline {
        stage('Imagepublish & Nextwait') {
          environment {
            def REPORT_STAGE='test'
+           def INPUT_ID='PublishGit'
          }
          steps {
            dockerHubPush()
+           inputProceed()
+           input id: 'PublishGit', message: 'Waiting for userinput'
            reportVersion()
-           input id: 'ok-prod', message: 'Waiting for userinput'
          }
        }
 
