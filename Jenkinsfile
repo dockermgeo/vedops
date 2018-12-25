@@ -21,16 +21,12 @@ pipeline {
             }
        }
 
-       stage('Build MongoDB & Wati') {
+       stage('Publish DockerHub & Wati') {
          environment {
            def REPORT_STAGE='test'
          }
          steps {
-           sh '''
-             docker pull mongo
-             docker tag mongo dockermgeo/mongo:latest
-             docker push dockermgeo/mongo:latest
-           '''
+           dockerHubPush()
            reportVersion()
            input id: 'ok-prod', message: 'Waiting for userinput'
          }

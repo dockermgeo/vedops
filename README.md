@@ -1,7 +1,7 @@
 # ![LOGO](docs/logo32.png) Vedops
 
 
-- build: v1.50 - updated: 2018-12-25T17:59:51+0000
+- build: v1.52 - updated: 2018-12-25T18:21:24+0000
 ---
 
 
@@ -13,7 +13,10 @@ The Frontend gives you a overview about your build/deployments etc. The UI suppo
 
 A Screenshot of the Frontend will printed at the bottom of this document.
 
-## Composition with docker
+## Docker
+Dockerimage is available on [Dockerhub-dockermgeo-vedops](https://hub.docker.com/r/dockermgeo/vedops).
+
+##### Composition for docker
 ```
 vedops:
   image: dockermgeo/vedops:latest
@@ -32,14 +35,14 @@ mongo:
 ## Environment
 
 ##### Needed
-- MONGODB_HOST=**{MONGODB_HOST}**
+  - MONGODB_HOST=**{MONGODB_HOST}**
 
 ##### Optional
-- LOG_LEVEL=**{INFO|DEBUG|ERROR}**
-- LIST_STAGES=**{'ST1 ST2 ST3 ST4 ST5'}**
-- MONGODB_PORT=**{MONGODB_PORT}**
-- MONGODB_USER=**{MONGODB_USER}**
-- MONGODB_PASSWORD=**{MONGODB_PASSWORD}**
+  - LOG_LEVEL=**{INFO|DEBUG|ERROR}**
+  - LIST_STAGES=**{'ST1 ST2 ST3 ST4 ST5'}**
+  - MONGODB_PORT=**{MONGODB_PORT}**
+  - MONGODB_USER=**{MONGODB_USER}**
+  - MONGODB_PASSWORD=**{MONGODB_PASSWORD}**
 
 
 ## API
