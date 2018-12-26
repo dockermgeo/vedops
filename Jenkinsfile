@@ -30,7 +30,7 @@ pipeline {
 
        stage('Imagepublish & Nextwait') {
          environment {
-           def REPORT_STAGE='test'
+           def REPORT_STAGE='dockerhub'
            def INPUT_ID='PublishGit'
          }
          steps {
@@ -43,7 +43,7 @@ pipeline {
 
        stage('Promote GitHub') {
          environment {
-           def REPORT_STAGE='prod'
+           def REPORT_STAGE='github'
          }
          steps {
            sh '''
