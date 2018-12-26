@@ -3,7 +3,7 @@ pipeline {
 
     environment {
       DOCKER_IMAGE = 'vedops'
-      REPORT_STAGE = 'build'
+      REPORT_STAGE = 'dev'
       BUILD_RELEASE_NUMBER = 1
     }
 
@@ -18,6 +18,7 @@ pipeline {
          environment {
            def DEPLOY_NAME='vedops'
            def INPUT_ID='DeployBuild'
+           def SLEEP_TIME=5
          }
          steps {
             //cycling cant report after that

@@ -100,7 +100,7 @@ class MongoConnector {
 							sicount++;
 						}
 						var newdocument = {name: newobj.name, mdate:utils.getDateFormated(), versions:list_rc}
-						logger.info("ADD NEW", newdocument)
+						logger.debug("ADD NEW", newdocument)
 						dbo.collection('builds').update({name:newobj.name},newdocument, {upsert:true}, function(err, result) {
 								if (err) {
 									logger.error(err)

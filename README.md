@@ -1,7 +1,7 @@
 # ![LOGO](docs/logo32.png) Vedops
 
 
-- build: v1.88 - updated: 2018-12-26T11:57:24+0000
+- build: v1.89 - updated: 2018-12-26T12:14:04+0000
 ---
 
 
