@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use([ '/', '/home'], require(__dirname+'/routes/home'));
+app.use([ '/', '/home' ], require(__dirname+'/routes/home'));
+app.use([ '/keepalive', '/status' ], require(__dirname+'/routes/keepalive'));
 if (process.env.DISABLE_API) {
   if (process.env.DISABLE_API.toLowerCase() === 'true') {
     app.use([ '/api', '/rest'], require(__dirname+'/routes/api_off'));
