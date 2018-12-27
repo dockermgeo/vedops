@@ -38,7 +38,7 @@ class ConfigHandler {
 		return logger;
 	}
 	getStyleName() {
-		return process.env.CSS_THEME || 'black';
+		return process.env.CSS_THEME || CFG.defaultstyle;
 	}
 	getStageNames() {
 		if (process.env.LIST_STAGES != null) {

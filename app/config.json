@@ -4,5 +4,6 @@
   "port":3200,
   "mongodb_host": "localhost",
   "mongodb_port": 27017,
+  "defaultstyle": "white",
   "stages": [ "BUILD", "TEST", "PROD"]
 }

@@ -1,7 +1,7 @@
 # ![LOGO](docs/logo32.png) Vedops
 
 
-- build: v1.131 - updated: 2018-12-27T17:17:21+0000
+- build: v1.132 - updated: 2018-12-27T17:22:05+0000
 ---
 
 
@@ -43,7 +43,7 @@ mongo:
   - LIST_STAGES=**{'ST1 ST2 ST3 ST4 ST5'}**
   - DISABLE_API=**{false|true}**
   - REFRESH_TIME=**{time in seconds - default:20}**
-  - CSS_THEME=**{black,white}**
+  - CSS_THEME=**{black,white - default:white}**
   - MONGODB_PORT=**{MONGODB_PORT}**
   - MONGODB_USER=**{MONGODB_USER}**
   - MONGODB_PASSWORD=**{MONGODB_PASSWORD}**
@@ -96,6 +96,6 @@ stage('DEPLOY_TEST') {
 
 ---
 
-![Screenshot](docs/webview.png)
-
+![Screenshot](docs/webview-white.png)
+![Screenshot](docs/webview-black.png)
 ---
