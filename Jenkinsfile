@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy & Test') {
          environment {
            def DEPLOY_NAME='vedops'
            def INPUT_ID='DeployBuild'
