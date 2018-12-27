@@ -1,6 +1,6 @@
 {
   "appname":"Vedops",
-  "loglevel":"trace",
+  "loglevel":"INFO",
   "port":3200,
   "mongodb_host": "localhost",
   "mongodb_port": 27017,

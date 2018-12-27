@@ -14,8 +14,15 @@ footer()
             span(class="onoffswitch-inner")
             span(class="onoffswitch-switch")
 
-      span= 'copyright 2018 - build: '+ HTML_VERSION + ' - '
+
+      span(class="fas fa-copyright")
+      span= ' copyright 2018 by '
       a(href='http://www.mgeo.de' class="footer")='mgeo.de'
+      br
+      span(class="fas fa-code-branch")
+      span= ' build: '+ HTML_VERSION
 
       if (HTML_REFRESH_TIME > 0)
-        p='Refresh interval: '+HTML_REFRESH_TIME+' sec.'
+        p()
+          span(class="fa fa-stopwatch")
+          span=' refresh interval: '+HTML_REFRESH_TIME+' sec.'

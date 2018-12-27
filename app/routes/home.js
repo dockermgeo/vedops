@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     }
   }
 
-  logger.info("HOME-CHECK",refreshtime, switchstate)
+  logger.trace("HOME-CHECK",refreshtime, switchstate)
 
   var htmlobject = {
       "HTML_TITLE": config.getAppname(),
