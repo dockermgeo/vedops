@@ -7,6 +7,6 @@ ENV DISABLE_API false
 ADD app /app
 
 WORKDIR /app
-RUN npm install
+RUN npm install && npm run setup
 
 ENTRYPOINT [ "node", "index.js"]
