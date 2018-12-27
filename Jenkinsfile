@@ -11,6 +11,9 @@ pipeline {
     stages {
         stage('Build Dockerimage') {
             steps {
+               sh '''
+                env
+               '''
                createBuildInfo()
                dockerBuild()
                reportVersion()

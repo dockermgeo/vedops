@@ -20,7 +20,9 @@ footer()
       a(href='http://www.mgeo.de' class="footer")='mgeo.de'
       br
       span(class="fab fa-simplybuilt")
-      span= ' build: '+ HTML_VERSION
+      span= ' build: '+ HTML_VERSION + ' '
+      span(class="fas fa-clock")
+      span()= ' ' + HTML_BUILDDATE
 
       if (HTML_REFRESH_TIME > 0)
         p()

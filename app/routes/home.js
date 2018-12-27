@@ -29,6 +29,7 @@ router.get('/', function(req, res, next) {
       "HTML_TABLE_COLSPAN": config.getStageNames().length + 1,
       "HTML_TABLE_CONTENT": null,
       "HTML_VERSION": config.getVersion(),
+      "HTML_BUILDDATE": config.getBuildDate(),
       "HTML_SWITCHSTATE": switchstate
   }
   mongo.getHome(res,htmlobject);

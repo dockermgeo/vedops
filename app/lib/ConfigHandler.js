@@ -28,6 +28,10 @@ class ConfigHandler {
 		const json_build=require(__dirname + "/../build.json");
 		return json_build.BUILD_NUMBER||1;
 	}
+	getBuildDate() {
+		const json_build=require(__dirname + "/../build.json");
+		return json_build.BUILD_DATE||"2018-12";
+	}
 	getLogger(loggername) {
 		var logger = require('log4js').getLogger(loggername);
 		logger.setLevel(process.env.LOGLEVEL || CFG.loglevel);
