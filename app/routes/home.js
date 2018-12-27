@@ -14,7 +14,8 @@ router.get('/', function(req, res, next) {
       "HTML_CSSTHEME": config.getStyleName(),
       "HTML_STAGES": config.getStageNames(),
       "HTML_TABLE_COLSPAN": config.getStageNames().length + 1,
-      "HTML_TABLE_CONTENT": null
+      "HTML_TABLE_CONTENT": null,
+      "HTML_VERSION": config.getVersion()
   }
   mongo.getHome(res,htmlobject);
 });

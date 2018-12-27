@@ -21,6 +21,10 @@ class ConfigHandler {
 	getAppname() {
 		return CFG.appname;
 	}
+	getVersion() {
+		const json_build=require(__dirname + "/../build.json");
+		return json_build.BUILD_NUMBER||1;
+	}
 	getLogger(loggername) {
 		var logger = require('log4js').getLogger(loggername);
 		logger.setLevel(process.env.LOGLEVEL || CFG.loglevel);
