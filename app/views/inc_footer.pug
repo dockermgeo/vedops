@@ -1,5 +1,3 @@
-
-
 footer()
   div(class="copyright right")
     a(href="#" class="white-link" title="to TOP")
@@ -7,15 +5,17 @@ footer()
   div(class="")
     center()
       div(class="onoffswitch")
+          if (HTML_SWITCHSTATE === 'checked')
+            input(type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked)
+          else
+            input(type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" unchecked)
 
-        if (HTML_SWITCHSTATE === 'checked')
-          input(type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked)
-        else
-          input(type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" unchecked)
+          label(class="onoffswitch-label" for="myonoffswitch")
+            span(class="onoffswitch-inner")
+            span(class="onoffswitch-switch")
 
-        label(class="onoffswitch-label" for="myonoffswitch")
-          span(class="onoffswitch-inner")
-          span(class="onoffswitch-switch")
-
-        span= 'copyright 2018 - build: '+ HTML_VERSION + ' - '
+      span= 'copyright 2018 - build: '+ HTML_VERSION + ' - '
       a(href='http://www.mgeo.de' class="footer")='mgeo.de'
+
+      if (HTML_REFRESH_TIME > 0)
+        p='Refresh-Time: '+HTML_REFRESH_TIME
