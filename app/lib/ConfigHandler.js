@@ -21,6 +21,9 @@ class ConfigHandler {
 	getAppname() {
 		return CFG.appname;
 	}
+	getNamespace() {
+		return process.env.NAMESPACE||'nonamespace';
+	}
 	getVersion() {
 		const json_build=require(__dirname + "/../build.json");
 		return json_build.BUILD_NUMBER||1;

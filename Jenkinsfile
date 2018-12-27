@@ -4,6 +4,7 @@ pipeline {
     environment {
       DOCKER_IMAGE = 'vedops'
       REPORT_STAGE = 'dev'
+      DEVGROUP_NAME = 'mgeo'
       BUILD_RELEASE_NUMBER = 1
     }
 
