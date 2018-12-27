@@ -4,8 +4,12 @@ body {background-color: white; color:black;}
 tr:nth-child(even) {background: #efefef;}
 tr:nth-child(odd) {background: #ffffff;}
 
-.copyright {font-size: 10px; color: #ccc; }
-.copyright a {color:rgb(75, 77, 75);}
 
 .breadcrumb {background-color: white;}
 .breadcrumb li a:before { border-left: 30px solid white; }
+
+.copyright {color: #ccc; }
+.copyright a {color:rgb(75, 77, 75);}
+footer {font-size: 10px;color: #ccc; }
+footer a { color: #ccc;}
+footer a:hover {color: #ccc;text-decoration: none;}

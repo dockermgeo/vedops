@@ -8,9 +8,5 @@ body {font-family: arial,Helvetica,sans-serif;background-color: black; color:whi
 .stage_empty{width: 10px;}
 .table { border-bottom: 1px solid white;border-top: transparent solid 4px;}
 
-tr:nth-child(even) {background: #242222;}
-tr:nth-child(odd) {background: #000000;}
 
 .right {position: absolute; right: 5px;}
-.copyright {font-size: 10px; color: #ccc; }
-.copyright a {color:rgb(75, 77, 75);}
