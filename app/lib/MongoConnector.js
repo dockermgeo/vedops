@@ -71,7 +71,7 @@ class MongoConnector {
 							list_rc.push(obj);
 						}
 
-						var newdocument = {name: newobj.name, mdate:utils.getDateFormated(), versions:list_rc}
+						var newdocument = {name: newobj.name, namespace: newobj.namespace, mdate:utils.getDateFormated(), versions:list_rc}
 						dbo.collection('builds').update({name:newobj.name},newdocument, {upsert:true}, function(err, result) {
 								if (err) {
 									logger.error(err);
@@ -99,7 +99,7 @@ class MongoConnector {
 							list_rc.push({ name: sname, version: version, mdate:mdate })
 							sicount++;
 						}
-						var newdocument = {name: newobj.name, mdate:utils.getDateFormated(), versions:list_rc}
+						var newdocument = {name: newobj.name, namespace: newobj.namespace, mdate:utils.getDateFormated(), versions:list_rc}
 						logger.debug("ADD NEW", newdocument)
 						dbo.collection('builds').update({name:newobj.name},newdocument, {upsert:true}, function(err, result) {
 								if (err) {
