@@ -10,6 +10,7 @@ pipeline {
     stages {
         stage('Build Dockerimage') {
             steps {
+               createBuildInfo()
                dockerBuild()
                reportVersion()
             }

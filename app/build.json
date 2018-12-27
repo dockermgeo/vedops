@@ -1,3 +1,12 @@
 {
-  "BUILD_NUMBER": 1
+"BUILD_URL": "http://mecy:8081/jenkins/job/ORCH_Vedops/118/",
+"BUILD_NUMBER": "118",
+"BUILD_ID": "118",
+"BUILD_DISPLAY_NAME": "#118",
+"JOB_NAME": "ORCH_Vedops",
+"JOB_BASE_NAME": "ORCH_Vedops",
+"WORKSPACE": "/data/workspace/ORCH_Vedops",
+"JENKINS_HOME": "/data",
+"JENKINS_URL": "http://mecy:8081/jenkins/",
+"JOB_URL": "http://mecy:8081/jenkins/job/ORCH_Vedops/"
 }
