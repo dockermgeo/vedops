@@ -10,8 +10,10 @@ const mongo = require(__dirname+'/../lib/MongoConnector');
 router.get('/', function(req, res, next) {
   mongo.getList(res);
 });
-router.get('/help', function(req, res, next) {
-  res.send('Usage: "/add/:namespace/:appname/:stage/:version"')
+/* SET */
+router.get('/set/refresh/:seconds', function(req, res, next) {
+  process.env.REFRESH_TIME = req.params.seconds;
+  res.sendStatus(200);
 });
 /* ADD */
 router.get('/add', function(req, res, next) {

@@ -10,6 +10,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   var htmlobject = {
       "HTML_TITLE": config.getAppname(),
+      "HTML_REFRESH_TIME": config.getRefreshTime(),
       "HTML_CSSTHEME": config.getStyleName(),
       "HTML_STAGES": config.getStageNames(),
       "HTML_TABLE_COLSPAN": config.getStageNames().length + 1,

@@ -1,7 +1,7 @@
 doctype html
 html
     include inc_meta.pug
-    body()
+    body(onload="JavaScript:timeRefresh();")
         include inc_header.pug
         table(class="table" width="100%" style="margin-top: -30px;")
           tr
@@ -26,5 +26,6 @@ html
                     div(class="td_div_right")= vobj.mdate
               td= ' '
 
-
+        input(type="hidden" name="timeoutPeriod" id="timeoutPeriod" value=HTML_REFRESH_TIME)
+        script(type="text/javascript" src="js/timer.js")
         include inc_footer.pug
