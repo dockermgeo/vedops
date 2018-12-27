@@ -13,3 +13,22 @@ tr:nth-child(odd) {background: #ffffff;}
 footer {font-size: 10px;color: #ccc; }
 footer a { color: #ccc;}
 footer a:hover {color: #ccc;text-decoration: none;}
+
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 0px solid #fff; border-radius: 0px;
+}
+.onoffswitch-inner:before {
+    content: "autorefresh enabled";
+    padding-left: 7px;
+    letter-spacing: 1px;
+    background-color: #fff; color: #1caa26;
+}
+.onoffswitch-inner:after {
+    content: " autorefresh disabled";
+    padding-right: 7px;
+    text-decoration: line-through;
+    letter-spacing: 1px;
+    background-color: #fff; color: #ba0000;
+    text-align: right;
+}

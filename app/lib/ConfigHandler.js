@@ -47,7 +47,7 @@ class ConfigHandler {
 		return CFG.stages;
 	}
 	getRefreshTime() {
-		return process.env.REFRESH_TIME || 0;
+		return process.env.REFRESH_TIME||20;
 	}
 }
 module.exports = new ConfigHandler();

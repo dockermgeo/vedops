@@ -5,14 +5,23 @@ const logger = config.getLogger('API');
 const express = require('express');
 const router = express.Router();
 const mongo = require(__dirname+'/../lib/MongoConnector');
+var session = require('express-session');
 
 /* GET */
 router.get('/', function(req, res, next) {
   mongo.getList(res);
 });
 /* SET */
-router.get('/set/refresh/:seconds', function(req, res, next) {
+router.get('/refresh/set/:seconds', function(req, res, next) {
   process.env.REFRESH_TIME = req.params.seconds;
+  res.sendStatus(200);
+});
+router.get('/refresh/switch', function(req, res, next) {
+  if (req.session.refresher === undefined) {req.session.refresher = 'enabled';}
+  else if (req.session.refresher === 'enabled') {req.session.refresher = 'disabled';}
+  else {req.session.refresher = 'enabled';}
+  logger.debug("Refresher switcher",req.session.refresher)
+
   res.sendStatus(200);
 });
 /* ADD */

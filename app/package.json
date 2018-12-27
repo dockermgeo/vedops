@@ -15,6 +15,7 @@
     "cookie-parser": "^1.4.3",
     "dateformat": "^3.0.3",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "log4js": "^0.6.35",
     "mongodb": "^3.1.10",
     "pug": "^2.0.3"

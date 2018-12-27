@@ -7,6 +7,7 @@ const dbi = require(__dirname+'/lib/MongoConnector');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
+var session = require('express-session');
 const path = require('path');
 var app = express();
 /* SETTINGS */
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'refresher'}));
 
 app.use([ '/', '/home' ], require(__dirname+'/routes/home'));
 app.use([ '/keepalive', '/status' ], require(__dirname+'/routes/keepalive'));
